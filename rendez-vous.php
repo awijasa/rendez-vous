@@ -236,7 +236,14 @@ class Rendez_Vous {
 		wp_localize_script( 'rendez-vous-plupload', 'pluploadL10n', array() );
 		wp_register_script( 'rendez-vous-media-views', includes_url( "js/media-views$suffix.js" ), array( 'utils', 'media-models', 'rendez-vous-plupload', 'jquery-ui-sortable' ), $this->version, 1 );
 		wp_register_script( 'rendez-vous-media-editor', includes_url( "js/media-editor$suffix.js" ), array( 'shortcode', 'rendez-vous-media-views' ), $this->version, 1 );
-		wp_register_script( 'rendez-vous-modal', $this->plugin_js . "rendez-vous-backbone$suffix.js", array( 'rendez-vous-media-editor', 'jquery-ui-datepicker' ), $this->version, 1 );
+		
+		wp_register_script(
+			'rendez-vous-modal',
+			$this->plugin_js . "rendez-vous-backbone.js", // Modified on 10/21/2017 by @awijasa. Previously: $this->plugin_js . "rendez-vous-backbone$suffix.js",
+			array( 'rendez-vous-media-editor', 'jquery-ui-datepicker' ),
+			$this->version . '.1', // Modified on 10/21/2017 by @awijasa. Previously: $this->version,
+			1
+		);
 
 		// Allow themes to override modal style
 		$modal_style = apply_filters( 'rendez_vous_modal_css', $this->plugin_css . "rendezvous-editor$suffix.css", $suffix );
@@ -253,7 +260,15 @@ class Rendez_Vous {
 		);
 
 		wp_enqueue_style  ( 'rendez-vous-style', $global_style['style'], (array) $global_style['deps'], $this->version );
-		wp_enqueue_script ( 'rendez-vous-script', $this->plugin_js . "rendezvous$suffix.js", array( 'jquery' ), $this->version, 1 );
+		
+		wp_enqueue_script (
+			'rendez-vous-script',
+			$this->plugin_js . "rendezvous.js", // Modified on 11/6/2017 by @awijasa. Previously: $this->plugin_js . "rendezvous$suffix.js",
+			array( 'jquery' ),
+			$this->version . '.1', // Modified on 11/6/2017 by @awijasa. Previously: $this->version,
+			1
+		);
+		
 		wp_localize_script( 'rendez-vous-script', 'rendez_vous_vars', array(
 			'confirm'  => esc_html__( 'Are you sure you want to cancel this rendez-vous ?', 'rendez-vous' ),
 			'noaccess' => esc_html__( 'This rendez-vous is restricted and you have not been invited to it.', 'rendez-vous' ),
