@@ -237,18 +237,6 @@ class Rendez_Vous {
 		wp_register_script( 'rendez-vous-media-views', includes_url( "js/media-views$suffix.js" ), array( 'utils', 'media-models', 'rendez-vous-plupload', 'jquery-ui-sortable' ), $this->version, 1 );
 		wp_register_script( 'rendez-vous-media-editor', includes_url( "js/media-editor$suffix.js" ), array( 'shortcode', 'rendez-vous-media-views' ), $this->version, 1 );
 		
-		// Added on 1/30/2018 by @awijasa.
-		
-		wp_enqueue_script( 'rendez-vous-inputmask', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js' );
-
-		wp_enqueue_script(
-			'rendez-vous-jquery.inputmask',
-			'https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/jquery.inputmask.min.js',
-			array( 'inputmask', 'jquery' )
-		);
-		
-		/*--------------------------------------------------------------------------------------------------------------------------------------*/
-		
 		wp_register_script(
 			'rendez-vous-modal',
 			$this->plugin_js . "rendez-vous-backbone.js", // Modified on 10/21/2017 by @awijasa. Previously: $this->plugin_js . "rendez-vous-backbone$suffix.js",
@@ -285,6 +273,18 @@ class Rendez_Vous {
 			'confirm'  => esc_html__( 'Are you sure you want to cancel this rendez-vous ?', 'rendez-vous' ),
 			'noaccess' => esc_html__( 'This rendez-vous is restricted and you have not been invited to it.', 'rendez-vous' ),
 		) );
+		
+		// Added on 1/30/2018 by @awijasa.
+		
+		wp_enqueue_script( 'rendez-vous-inputmask', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js' );
+
+		wp_enqueue_script(
+			'rendez-vous-jquery.inputmask',
+			'https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/jquery.inputmask.min.js',
+			array( 'rendez-vous-inputmask', 'jquery' )
+		);
+		
+		/*--------------------------------------------------------------------------------------------------------------------------------------*/
 	}
 
 	/** Utilities *****************************************************************************/
