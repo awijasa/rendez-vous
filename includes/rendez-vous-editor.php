@@ -412,7 +412,25 @@ function rendezvous_media_templates() {
 		<# } else if ( 'duree' === data.type ) { #>
 			<p>
 				<label for="{{data.id}}">{{data.label}}</label>
-				<input type="text" id="{{data.id}}" placeholder="{{data.placeholder}}" value="{{data.value}}" class="rdv-input-what duree {{data.class}}"/>
+				
+				<!--
+					Modified on 10/21/2017 by @awijasa
+
+					Previously: <input type="text" id="{{data.id}}" placeholder="{{data.placeholder}}" value="{{data.value}}" class="rdv-input-what duree {{data.class}}" />
+				-->
+
+				<input
+					type="text"
+					id="{{data.id}}"
+					placeholder="{{data.placeholder}}"
+					value="{{data.value}}"
+					class="rdv-input-what duree {{data.class}}"
+					oninput="this.reportValidity();"
+					pattern="[0-9]?[0-9]:[0-5][0-9]"
+					title="Duration should be between 00:00 and 99:59"
+				/>
+
+				<!------------------------------------------------------------------>
 			</p>
 		<# } else if ( 'checkbox' === data.type ) { #>
 			<p>
