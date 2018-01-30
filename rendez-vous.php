@@ -273,6 +273,18 @@ class Rendez_Vous {
 			'confirm'  => esc_html__( 'Are you sure you want to cancel this rendez-vous ?', 'rendez-vous' ),
 			'noaccess' => esc_html__( 'This rendez-vous is restricted and you have not been invited to it.', 'rendez-vous' ),
 		) );
+		
+		// Added on 1/30/2018 by @awijasa.
+		
+		wp_enqueue_script( 'rendez-vous-inputmask', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js' );
+
+		wp_enqueue_script(
+			'rendez-vous-jquery.inputmask',
+			'https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/jquery.inputmask.min.js',
+			array( 'inputmask', 'jquery' )
+		);
+		
+		/*--------------------------------------------------------------------------------------------------------------------------------------*/
 	}
 
 	/** Utilities *****************************************************************************/
