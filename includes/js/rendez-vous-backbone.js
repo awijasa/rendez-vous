@@ -858,6 +858,8 @@ var rdv = rdv || {};
 		manageWhatTab:function( what) {
 			this.set( 'content', 'what');
 			this.frame.toolbar.get().refresh();
+			
+			$( '.rdv-input-what.duree' ).inputmask( '99:99' ); // Added on 1/29/2018 by @awijasa.
 		},
 
 		manageWhenTab:function( when ) {
@@ -1090,6 +1092,8 @@ var rdv = rdv || {};
 				e.preventDefault();
 
 				media.frame().open();
+				
+				$( '.rdv-input-what.duree' ).inputmask( 'remove' ).inputmask( '99:99' ); // Added on 1/29/2018 by @awijasa.
 			});
 		}
 	} );
