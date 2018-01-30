@@ -61,5 +61,7 @@
 			} );
 		}
 	} );
+	
+	$( '#rendez-vous-edit-duration' ).inputmask( '99:99' ); // Added on 1/29/2018 by @awijasa.
 
 } )( jQuery );
