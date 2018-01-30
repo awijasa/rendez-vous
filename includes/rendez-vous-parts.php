@@ -242,7 +242,26 @@ function rendez_vous_edit_content() {
 
 		<p>
 			<label for="rendez-vous-edit-duration"><?php esc_html_e( 'Duration', 'rendez-vous' ); ?></label>
-			<input type="text" placeholder="00:00" name="_rendez_vous_edit[duration]" id="rendez-vous-edit-duration" value="<?php rendez_vous_single_the_duration() ;?>" class="rdv-duree"/>
+			
+			<!--
+				Modified on 10/22/2017 by @awijasa
+
+				Previously:
+				<input type="text" placeholder="00:00" name="_rendez_vous_edit[duration]" id="rendez-vous-edit-duration" value="<?php rendez_vous_single_the_duration() ;?>" class="rdv-duree"/>
+			-->
+
+			<input
+				type="text"
+				placeholder="00:00"
+				name="_rendez_vous_edit[duration]"
+				id="rendez-vous-edit-duration"
+				value="<?php rendez_vous_single_the_duration() ;?>"
+				class="rdv-duree"
+				pattern="[0-9]?[0-9]:[0-5][0-9]"
+				title="Duration should be between 00:00 and 99:59"
+			/>
+
+			<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 		</p>
 		<p>
 			<label for="rendez-vous-edit-status"><?php esc_html_e( 'Restrict this rendez-vous to the selected attendees', 'rendez-vous' ); ?>
