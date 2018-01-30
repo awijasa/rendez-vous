@@ -179,7 +179,13 @@ function rendez_vous_ajax_create() {
 	}
 
 	// Check duration format
-	if ( ! empty( $args['duration'] ) && ! preg_match( '/^[0-2]?[0-9]:[0-5][0-9]$/', $args['duration'] ) ) {
+	if(
+		! empty( $args['duration'] ) &&
+		! preg_match(
+			'/^[0-9]?[0-9]:[0-5][0-9]$/', // Modified on 1/29/2018 by @awijasa. Previously: '/^[0-2]?[0-9]:[0-5][0-9]$/',
+			$args['duration']
+		)
+	) {
 		$maydates_errors[] = $args['duration'];
 	}
 
