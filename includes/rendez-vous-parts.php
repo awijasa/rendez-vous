@@ -264,7 +264,7 @@ function rendez_vous_edit_content() {
 			<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 		</p>
 		<p>
-			<label for="rendez-vous-edit-status"><?php esc_html_e( 'Restrict this rendez-vous to the selected attendees', 'rendez-vous' ); ?>
+			<label for="rendez-vous-edit-privacy"><?php esc_html_e( 'Restrict this rendez-vous to the selected attendees', 'rendez-vous' ); ?>
 				<input type="checkbox" name="_rendez_vous_edit[privacy]" id="rendez-vous-edit-privacy" <?php rendez_vous_single_the_privacy();?> value="1">
 			</label>
 		</p>
